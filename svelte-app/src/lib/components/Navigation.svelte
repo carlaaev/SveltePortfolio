@@ -10,7 +10,6 @@
 
      <!-- Navigation Links -->
     <ul class:open={isOpen}>
-        <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>
         <li><a href="/portfolio">Portfolio</a></li>
@@ -25,6 +24,9 @@
         margin: 0;
         display: flex;
         justify-content: center;
+        gap: 40px;
+        position: relative;
+        z-index: 9999;
     }
 
     nav ul li {
@@ -33,15 +35,29 @@
 
     nav ul li a {
         text-decoration: none;
-        color: var(--text-color);
-        font-weight: bold;
+        color: var(--link-hover-color);
+        position: relative;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
     }
 
+    nav ul li a:hover {
+        color: var(---primary-color);
+    }
 
-    .nav ul li a {
-        color: var(--text-color);
-        text-decoration: none;
-        font-weight: bold;
+    nav ul li a:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 1px;
+        bottom: -5px;
+        left: 0;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover:after {
+        width: 100%;
     }
 
     /* 🍔 Burger Menu (Hidden on Large Screens) */
@@ -51,7 +67,7 @@
         background: none;
         border: none;
         cursor: pointer;
-        color: white;
+        color: var(--text-color);
         position: absolute;
         top: 1rem;
         left: 1rem;
@@ -71,10 +87,11 @@
             top: 90px;
             left: 0;
             width: 100%;
-            background: #007bff;
+            background: #feeff3;
             text-align: left;
             padding: 1rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
         }
 
         .nav ul.open {
@@ -83,6 +100,7 @@
 
         .nav ul li {
             padding: 10px 20px;
+            background: #feeff3;
         }
     }
 </style>

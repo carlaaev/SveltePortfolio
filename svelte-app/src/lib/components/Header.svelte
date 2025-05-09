@@ -6,8 +6,10 @@
 <header>
     <!-- Logo -->
      <div class="logo">
-        <img src="/flower.png" alt="Website Logo">
-        <h1>My Portfolio</h1>
+        <a href="/">
+            <img src="icons/logo.png" alt="Website Logo">
+        </a>
+        <span>Portfolio</span>
      </div>
 
      <!-- Navigation -->
@@ -22,6 +24,7 @@
         justify-content: space-between;
         color: var(--text-color);
         padding: 1rem;
+        border-bottom: 1px solid rgba(93, 73, 84, 0.2);
     }
 
     /* Logo Container */
@@ -31,8 +34,8 @@
     }
 
     .logo img {
-        width: 50px;
-        margin-right: 0.625rem;
+        width: 130px;
+        margin: 10px;
     }
 
     /* Mobile: Center logo and stack items */
