@@ -1,0 +1,87 @@
+/* ==============================
+   Global Styles with CSS Variables
+   ============================== */
+
+   :root {
+    /* Color Variables */
+    --primary-color:#ffb7c5;
+    --background-color: #ffeef2;
+    --ink-black: #333333;
+    --paper-cream: #fff9f0;
+    --link-hover-color: #5d4954;
+    /* rosa - F8D7DA */
+
+    /* Font Variables */
+    --font-family: 'Noto Serif', serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+
+    /* Spacing Variables */
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 40px;
+    --max-width: 1200px;
+}
+
+/* ==============================
+   Global Reset - Ensures consistency across browsers
+   ============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==============================
+   Base Styles
+   ============================== */
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: var(--line-height-base);
+    /* cursor: url("/individual-flower.png") 16 16, auto; */
+}
+
+/* ==============================
+   Headings
+   ============================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    font-family: 'Noto Serif JP', serif;
+    position: relative;
+    text-align: center;
+    margin-bottom: var(--spacing-small);
+}
+
+/* ==============================
+   Paragraphs
+   ============================== */
+p {
+    margin-bottom: var(--spacing-small);
+}
+
+/* ==============================
+   Links
+   ============================== */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--link-hover-color);
+}
+
+/* ==============================
+   Container - Layout Wrapping
+   ============================== */
+.container {
+    width: 90%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--spacing-medium);
+}
