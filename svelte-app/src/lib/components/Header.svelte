@@ -9,7 +9,6 @@
         <a href="/">
             <img src="icons/logo.png" alt="Website Logo">
         </a>
-        <span>Portfolio</span>
      </div>
 
      <!-- Navigation -->
@@ -24,7 +23,7 @@
         justify-content: space-between;
         color: var(--text-color);
         padding: 1rem;
-        border-bottom: 1px solid rgba(93, 73, 84, 0.2);
+        /*border-bottom: 1px solid rgba(93, 73, 84, 0.2);*/
     }
 
     /* Logo Container */

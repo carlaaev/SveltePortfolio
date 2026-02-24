@@ -20,8 +20,8 @@
 </div>
 
 <section class="intro">
-    <h1 class="title">Crafting Digital Beauty</h1>
-    <p class="subtitle">I design with passion and create with purpose, bringing dreams to life through elegant design and thoughtful development.</p>
+    <h1 class="title">Placeholder</h1>
+    <p class="subtitle">Temp text</p>
     <a href="/portfolio" class="cta-button">View My Work</a>
 </section>
 
@@ -34,7 +34,7 @@
         width: 100%;
         height: 100%;
         z-index: -10;
-        opacity: 40%;
+        opacity: 80%;
         background-image: url("background-items/background.jpg");
         background-size: cover;
         background-position: center;
@@ -73,7 +73,7 @@
         background-image: url("background-items/individual-flower.png");
         background-size: contain;
         animation: float 20s linear infinite;
-        opacity: 0.6;
+        /*opacity: 0.8;*/
     }
 
     .flower-1 {
@@ -142,7 +142,7 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 120px 0 60px;
+        padding: 50px 0 60px;
         position: relative;
         overflow: hidden;
     }
