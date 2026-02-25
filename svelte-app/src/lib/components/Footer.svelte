@@ -4,7 +4,7 @@
 
 <footer>
     <div class="footer-content">
-        <p class="footer-quote">Create with the heart; build with the mind.</p>
+        <!--<p class="footer-quote">Create with the heart; build with the mind.</p>-->
 
         <!-- For decorative purposes only at the moment. -->
         <div class="social-links">
@@ -33,11 +33,13 @@
     footer {
         color: var(--ink-black);
         text-align: center;
-        padding: 60px 0;
-        position: relative;
+        position: fixed;
         overflow: hidden;
+        padding: 0.75rem;
         bottom: 0;
+        height: 7%;
         width: 100%;
+        background-color: #e7d2da;
     }
 
     .footer-quote {
@@ -101,8 +103,6 @@
     /* Mobile: Reduce padding for a more compact look */
     @media (max-width: 768px) {
         footer {
-            padding: 0.75rem;
-            position: relative;
             font-size: 0.9rem;
         }
     }

@@ -70,7 +70,7 @@
         position: absolute;
         width: 30px;
         height: 30px;
-        background-image: url("background-items/individual-flower.png");
+        background-image: url("background-items/sparkle.png");
         background-size: contain;
         animation: float 20s linear infinite;
         /*opacity: 0.8;*/

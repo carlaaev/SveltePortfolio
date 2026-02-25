@@ -7,7 +7,6 @@
     })
 </script>
 
-<div class="page-border"></div>
 <div class="page-bg"></div>
 
 <!-- Floating Flowers -->
@@ -67,27 +66,14 @@
         width: 100%;
         height: 100%;
         z-index: -10;
-        opacity: 40%;
-        background-image: url("background-items/background.jpg");
+        /*opacity: 40%;*/
+        background-image: url("background-items/about.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         pointer-events: none;
     }
 
-    .page-border {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -10;
-        background-image: url("background-items/border.PNG");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        pointer-events: none;
-    }
 
     /* FLOATING FLOWERS ANIMATION */
     .floating-flowers {
@@ -103,7 +89,7 @@
         position: absolute;
         width: 30px;
         height: 30px;
-        background-image: url("background-items/individual-flower.png");
+        background-image: url("background-items/sparkle.png");
         background-size: contain;
         animation: float 20s linear infinite;
         opacity: 0.6;

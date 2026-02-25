@@ -11,9 +11,9 @@
 
      <!-- Navigation Links -->
     <ul class:open={isOpen}>
-        <li><a href="{base}/about">About</a></li>
-        <li><a href="{base}/contact">Contact</a></li>
-        <li><a href="{base}/portfolio">Portfolio</a></li>
+        <li><a href="{base}/about"><img src="icons/folder.png" alt="About" width="110" height="100">About</a></li>
+        <li><a href="{base}/contact"><img src="icons/folder.png" alt="Contact" width="110" height="100">Contact</a></li>
+        <li><a href="{base}/portfolio"><img src="icons/folder.png" alt="Portfolio" width="110" height="100">Work</a></li>
     </ul>
 </nav>
 

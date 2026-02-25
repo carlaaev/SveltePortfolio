@@ -21,8 +21,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background-color: var(--border);
         color: var(--text-color);
-        padding: 1rem;
+        padding: 0.75rem;
         /*border-bottom: 1px solid rgba(93, 73, 84, 0.2);*/
     }
 
