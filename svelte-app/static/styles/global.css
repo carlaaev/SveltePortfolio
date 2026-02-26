@@ -4,10 +4,10 @@
 
    :root {
     /* Color Variables */
-    --primary-color:#ffb7c5;
+    --primary-color:#e1bfcc;
     --background-color: #ffeef2;
-    --ink-black: #333333;
-    --paper-cream: #fff9f0;
+    --ink-black: #000000;
+    --white: #ffffff;
     --link-hover-color: #5d4954;
     --borders: #e7d2da;
     /* rosa - F8D7DA */

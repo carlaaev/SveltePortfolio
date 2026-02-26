@@ -42,7 +42,7 @@
         background-color: #e7d2da;
     }
 
-    .footer-quote {
+    /*.footer-quote {
         font-style: italic;
         font-size: 1.2rem;
         max-width: 700px;
@@ -71,7 +71,7 @@
         content: "";
         bottom: -40px;
         right: 0;
-    }
+    }*/
 
     .social-links {
         display: flex;

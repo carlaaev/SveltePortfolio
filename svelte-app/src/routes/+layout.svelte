@@ -1,11 +1,12 @@
 <script>
     // Import components
     import { Header, Footer } from "$lib";
+	import LoginWindow from "$lib/components/LoginWindow.svelte";
 
 </script>
 
-<!-- Header -->
-<Header />
+<!-- Header 
+<Header />-->
 
 <!-- Page Content -->
  <main>

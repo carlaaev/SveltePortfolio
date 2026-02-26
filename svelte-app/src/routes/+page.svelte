@@ -1,14 +1,98 @@
 <script>
     import { onMount } from 'svelte';
+    import LoginWindow from '$lib/components/LoginWindow.svelte';
+    import DesktopIcon from '$lib/components/DesktopIcon.svelte';
+    import Taskbar from '$lib/components/Taskbar.svelte';
+    import ContentWindow from '$lib/components/ContentWindow.svelte';
 
 
     onMount(async () => {
         console.log("Home Page Loaded");
     })
+
+    let loggedIn = false;
+    let showLogin = true;
+    let openWindows = {};
+
+    const desktopIcons = [
+        { id: 'projects', label: 'Projects'},
+        { id: 'about', label: 'About Me' },
+        { id: 'contact', label: 'Contact'},
+    ];
+
+    const taskbarItems = [
+        { id: ''}
+    ]
+
+   function handleTaskbar({ detail: id }) {
+        if (id === 'login') {
+            showLogin = true;
+        } else if (id !== 'home') {
+            openWindows = {...openWindows, [id]: true};
+        }
+   }
+
+   function openWindow(id) {
+    openWindows = {...openWindows, [id]: false };
+   }
+
+   $: activeIds = Object.entries(openWindows)
+    .filter(([, v]) => v)
+    .map(([k]) => k);
+
+   $: taskbarWithActive = taskbarItems.map(t => ({
+    ...t,
+    active: activeIds.includes(t.id) || (t.id === 'login' && showLogin),
+   }));
 </script>
 
-<div class="page-border"></div>
-<div class="page-bg"></div>
+
+<svelte:head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</svelte:head>
+
+
+<div class="desktop">
+    <!-- Wallpaper -->
+    <div class="page-bg"></div>
+
+    <!-- Big Title -->
+     <div class="title-area" aria-hidden="true">
+        <span class="title-script">My</span>
+        <span class="title-main">Portfolio.</span>
+     </div>
+
+     <!-- Desktop icons (right column) -->
+      {#if loggedIn}
+        <div class="icons-col" class:visible={loggedIn}>
+            {#each desktopIcons as icons}
+                <DesktopIcon label={icons.label} on:open={() => openWindow(icons.id)} />
+            {/each}
+        </div>
+    {/if}
+
+    <!-- Widows -->
+    {#if showLogin}
+        <LoginWindow on:close={() => { showLogin = false; loggedIn = true; }} />
+    {/if}
+
+    {#each desktopIcons as icon}
+        {#if openWindows[icon.id]}
+            <ContentWindows id={icon.id} on:close={() => closeWindow(icon.id)} />
+        {/if}
+    {/each}
+
+    <!-- Taskbar -->
+    {#if loggedIn}
+        <Taskbar items={taskbarWithActive} on:action={handleTaskbar} />
+    {/if}
+
+</div>
+
+
+<!-- <div class="page-border"></div>-->
+
     
 <!-- Floating Flowers -->
 <div class="floating-flowers">
@@ -19,12 +103,6 @@
     <div class="flower flower-5"></div>
 </div>
 
-<section class="intro">
-    <h1 class="title">Placeholder</h1>
-    <p class="subtitle">Temp text</p>
-    <a href="/portfolio" class="cta-button">View My Work</a>
-</section>
-
 <style>
     /* BACKGROUND */
     .page-bg {
@@ -34,27 +112,13 @@
         width: 100%;
         height: 100%;
         z-index: -10;
-        opacity: 80%;
-        background-image: url("background-items/background.jpg");
+        background-image: url("lock-screen/background.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         pointer-events: none;
     }
 
-    .page-border {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -10;
-        background-image: url("background-items/border.PNG");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        pointer-events: none;
-    }
 
     /* FLOATING FLOWERS ANIMATION */
     .floating-flowers {
@@ -73,7 +137,7 @@
         background-image: url("background-items/sparkle.png");
         background-size: contain;
         animation: float 20s linear infinite;
-        /*opacity: 0.8;*/
+        opacity: 0.8;
     }
 
     .flower-1 {
@@ -114,70 +178,41 @@
         100% { transform: translate(0, 0) rotate(0deg); }
     }
 
-    /* BUTTONS */
-    .cta-button {
-    display: inline-block;
-    margin-top: 40px;
-    padding: 12px 30px;
-    background-color: transparent;
-    border: 1px solid var(--cherry-blossom);
-    color: var(--deep-plum);
-    text-decoration: none;
-    border-radius: 2px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    }
+    /* Title */
 
-    .cta-button:hover {
-    background-color: var(--cherry-blossom);
-    color: white;
-    }
-
-    /* TEXT */
-
-    .intro {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 50px 0 60px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .intro h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-    font-weight: 300;
-    color: var(--deep-plum);
-    position: relative;
-    }
-  
-    .intro h1:after {
-        content: "";
+    .title-area {
         position: absolute;
-        width: 100px;
-        height: 2px;
-        background-color: var(--cherry-blossom);
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .intro p {
-        font-size: 1.2rem;
-        margin-top: 30px;
-        max-width: 600px;
-        line-height: 1.6;
-        color: var(--deep-plum);
-        opacity: 0.9;
+        top: 14px;
+        left: 58px;
+        pointer-events: none;
+        user-select: none;
+        line-height: 1;
     }
 
-    @media (max-width: 768px) {
-    .intro h1 {
-      font-size: 2.5rem;
+    .title-script {
+        display: block;
+        font-family: 'Dancing Script', cursive;
+        font-size: clamp(100px, 1vw, 49px);
+        color: var(--white);
+        opacity: 0.9;
+        position: relative;
+        top: 35px;
+        left: 2px;
     }
-  }
+
+    .title-main {
+        display: box;
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(60px, 12vw, 140px);
+        font-weight: 900;
+        color: var(--primary-color);
+        letter-spacing: -0.02em;
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    
 </style>
