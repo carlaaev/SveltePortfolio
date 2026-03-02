@@ -77,7 +77,8 @@
         display: flex;
         justify-content: center;
         gap: 30px;
-        margin-bottom: 30px;
+        margin-top: 10px;
+        margin-bottom: 15px;
     }
 
     .social-link {
@@ -100,7 +101,7 @@
         opacity: 0.7;
     }
 
-    /* Mobile: Reduce padding for a more compact look */
+    /* Mobile */
     @media (max-width: 768px) {
         footer {
             font-size: 0.9rem;

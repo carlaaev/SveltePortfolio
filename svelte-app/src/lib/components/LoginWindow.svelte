@@ -9,6 +9,8 @@
     }
 </script>
 
+<div class="page-border"></div>
+
 <!-- <Window title="Login" on:close={() =>
 dispatch('close')}> -->
     <div class="body">
@@ -24,30 +26,46 @@ dispatch('close')}> -->
 <!-- </Window> -->
 
 <style>
+
+        .page-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            background-image: url("background-items/border.PNG");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
     .body {
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 16px;
+        margin-top: 200px;
     }
 
     .avatar {
         background-image: url("lock-screen/pfp.png");
-        width: 90px;
-        height: 90px;
+        background-size: contain;
+        width: 280px;
+        height: 280px;
         border-radius: 50%;
-        border: 2px solid rgba(212, 160, 168, 0.25);
+        border: 1px solid rgba(212, 160, 168, 0.25);
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.3);
-        padding: 8px;
+        padding: 3px;
     }
 
     .name {
         font-family: 'DM Sans', sans-serif;
-        font-size: 11px;
+        font-size: 19px;
         letter-spacing: 0.18em;
         text-transform: uppercase;
         color: var(--white);
@@ -64,7 +82,7 @@ dispatch('close')}> -->
         padding: 9px 18px;
         background: var(--primary-color);
         color: var(--white);
-        font-size: 12px;
+        font-size: 16px;
         font-weight: 600;
         font-family: 'DM Sans', sans-serif;
         cursor: pointer;
@@ -75,6 +93,27 @@ dispatch('close')}> -->
         flex-shrink: 0;
     }
 
-    .login-btn:hover { background: #e8c4ca; }
+    .login-btn:hover { background: #c2899a; }
     .login-btn:active { transform: scale(0.97); }
+
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .avatar {
+            width: 180px;
+            height: 180px;
+        }
+
+        .body {
+            margin-top: 220px;
+        }
+
+        .name {
+            font-size: 16px;
+        }
+
+        .login-btn {
+            font-size: 13px;
+        }       
+    }
 </style>

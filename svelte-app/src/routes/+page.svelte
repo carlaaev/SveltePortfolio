@@ -192,7 +192,7 @@
     .title-script {
         display: block;
         font-family: 'Dancing Script', cursive;
-        font-size: clamp(100px, 1vw, 49px);
+        font-size: clamp(80px, 1vw, 49px);
         color: var(--white);
         opacity: 0.9;
         position: relative;
@@ -203,7 +203,7 @@
     .title-main {
         display: box;
         font-family: 'Playfair Display', serif;
-        font-size: clamp(60px, 12vw, 140px);
+        font-size: clamp(50px, 12vw, 140px);
         font-weight: 900;
         color: var(--primary-color);
         letter-spacing: -0.02em;
